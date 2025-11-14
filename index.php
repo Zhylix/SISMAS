@@ -7,22 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.0/cdn.min.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -92,7 +77,7 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
-                <div class="bg-gray-50 rounded-xl p-6 card-hover">
+                <div class="bg-gray-50 rounded-xl p-6 card-hover animate-on-scroll">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-user-secret text-blue-600 text-xl"></i>
                     </div>
@@ -101,7 +86,7 @@
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="bg-gray-50 rounded-xl p-6 card-hover">
+                <div class="bg-gray-50 rounded-xl p-6 card-hover animate-on-scroll">
                     <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-chart-bar text-green-600 text-xl"></i>
                     </div>
@@ -110,7 +95,7 @@
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="bg-gray-50 rounded-xl p-6 card-hover">
+                <div class="bg-gray-50 rounded-xl p-6 card-hover animate-on-scroll">
                     <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-bell text-purple-600 text-xl"></i>
                     </div>
@@ -119,7 +104,7 @@
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="bg-gray-50 rounded-xl p-6 card-hover">
+                <div class="bg-gray-50 rounded-xl p-6 card-hover animate-on-scroll">
                     <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-tags text-orange-600 text-xl"></i>
                     </div>
@@ -128,7 +113,7 @@
                 </div>
 
                 <!-- Feature 5 -->
-                <div class="bg-gray-50 rounded-xl p-6 card-hover">
+                <div class="bg-gray-50 rounded-xl p-6 card-hover animate-on-scroll">
                     <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-moon text-red-600 text-xl"></i>
                     </div>
@@ -137,7 +122,7 @@
                 </div>
 
                 <!-- Feature 6 -->
-                <div class="bg-gray-50 rounded-xl p-6 card-hover">
+                <div class="bg-gray-50 rounded-xl p-6 card-hover animate-on-scroll">
                     <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-download text-indigo-600 text-xl"></i>
                     </div>
@@ -152,7 +137,7 @@
     <section id="about" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
+                <div class="animate-on-scroll">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Tentang SISMAS</h2>
                     <p class="text-gray-600 mb-6">
                         SISMAS adalah platform inovatif yang dirancang untuk memfasilitasi komunikasi antara siswa, guru, 
@@ -177,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative">
+                <div class="relative animate-on-scroll">
                     <div class="bg-white rounded-2xl p-6 shadow-xl transform rotate-3 transition duration-300 hover:rotate-0">
                         <div class="flex items-center space-x-3 mb-4">
                             <div class="w-3 h-3 bg-red-400 rounded-full"></div>
@@ -261,42 +246,6 @@
         </div>
     </footer>
 
-    <script>
-        // Animasi scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scroll untuk anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Animasi fade in pada scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-fade-in-up');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.card-hover').forEach(card => {
-                observer.observe(card);
-            });
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
